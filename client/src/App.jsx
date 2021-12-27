@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from './components/Home.tsx';
 
-const test = () => {
-  return (
-    <div>here</div>
-  )
-}
+
 const App = () => {
   return (
     <Router>
-      <Route path="/" component={test} />
+      <Route path="/" exact component={Home} />
     </Router>
   );
 }
