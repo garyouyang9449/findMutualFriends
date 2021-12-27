@@ -9,6 +9,6 @@
     "typescript": "^4.5.4"
   },
   "scripts": {
-    "serve": "nodemon App.ts"
+    "server": "nodemon App.ts"
   }
 }
