@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header/Header';
+import MutualFollowings from './MutualFollowings/MutualFollowings';
 import TwitterUsers from './TwitterUsers/TwitterUsers';
 
 const Home = () => {
   const [users, setUsers] = useState([]);
+  const [mutualFollowings, setMutualFollowings] = useState([]);
 
   useEffect(() => {
-    fetch("/mutual-followings")
-      .then((res) => res.json())
-      .then((data) => console.log(data.message));
-  }, []);
+    
+  }, [mutualFollowings]);
 
   return (
     <>
-      <div>
+      {/* <div>
         <Header />
-      </div>
+      </div> */}
       <div>
         <TwitterUsers />
+      </div>
+      <div>
+        <MutualFollowings
+          users={users}
+          setMutualFollowings={setMutualFollowings}
+        />
       </div>
     </>
   )
