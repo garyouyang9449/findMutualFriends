@@ -1,4 +1,7 @@
 import express from "express";
+const auth = require('./auth/auth');
+const header = auth.header;
+
 const app = express();
 const PORT = 8080;
 
