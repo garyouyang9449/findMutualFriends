@@ -4,7 +4,7 @@ import MutualFollowings from './MutualFollowings/MutualFollowings';
 import TwitterUsers from './TwitterUsers/TwitterUsers';
 
 const Home = () => {
-  const [users, setUsers] = useState(['punk6529']);
+  const [users, setUsers] = useState(['punk6529', 'NFTLately']);
   const [mutualFollowings, setMutualFollowings] = useState([]);
 
   useEffect(() => {
