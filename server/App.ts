@@ -4,6 +4,9 @@ const header = auth.header;
 
 const app = express();
 const PORT = 8080;
+const cors = require("cors");
+
+app.use(cors());
 
 app.get('/mutual-followings', function (req, res) {
   res.json({
