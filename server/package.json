@@ -11,6 +11,6 @@
     "typescript": "^4.5.4"
   },
   "scripts": {
-    "server": "nodemon App.ts"
+    "server": "nodemon ./src/App.ts"
   }
 }
