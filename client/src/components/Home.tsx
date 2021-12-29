@@ -24,7 +24,10 @@ const Home = () => {
         direction="column"
         alignItems="center"
       >
-        <TwitterUsers />
+        <TwitterUsers
+          users={users}
+          setUsers={setUsers}
+        />
         <MutualFollowings
           users={users}
           setMutualFollowings={setMutualFollowings}
