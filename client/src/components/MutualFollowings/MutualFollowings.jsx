@@ -8,7 +8,7 @@ const MutualFollowings = ({ users, setMutualFollowings }) => {
   const onClick = () => {
     getMutualFollowings(users)
       .then(res => {
-        console.log(res.data.message);
+        console.log(res.data);
       });
   }
 
