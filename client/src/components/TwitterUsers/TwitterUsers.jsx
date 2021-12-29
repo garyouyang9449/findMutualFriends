@@ -3,10 +3,15 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 
-const TwitterUsers = ({ users, setUsers }) => {
+const TwitterUsers = ({
+  users,
+  setUsers,
+  openAlert,
+  setOpenAlert,
+  setMessage
+}) => {
   const [user, setUser] = useState('');
-  const [showError, setShowError] = useState(false);
-  const [label, setLabel] = useState('Twitter User Name');
+  
 
   const handleChange = (event) => {
     setUser(event.target.value);
@@ -14,9 +19,11 @@ const TwitterUsers = ({ users, setUsers }) => {
 
   const handleClick = () => {
     if(user.length > 0 && user.charAt(0) === '@') {
-      setShowError(true)
-      setLabel('Error')
+      setOpenAlert(true)
+      setMessage('Twitter User cannot Start with @')
     } else {
+      setOpenAlert(false)
+      setMessage('')
       setUsers([...users, user]);
       setUser('');
     }
@@ -24,22 +31,27 @@ const TwitterUsers = ({ users, setUsers }) => {
 
   return (
     <Grid item xs={12}>
-      <TextField
-        id="standard-basic"
-        label={label}
-        variant="standard"
-        value={user}
-        onChange={handleChange}
-        error={showError}
-      />
-      <Button
-        variant="contained"
-        onClick={handleClick}
-      >
-        Add User
-      </Button>
+      <Grid container>
+        <Grid item>
+          <TextField
+            id='standard-basic'
+            label='Enter a Twitter User Name'
+            variant='standard'
+            value={user}
+            onChange={handleChange}
+            error={openAlert}
+          />
+        </Grid>
+        <Grid item alignItems="stretch" style={{ display: "flex" }}>
+          <Button
+            variant="contained"
+            onClick={handleClick}
+          >
+            Add User
+          </Button>
+        </Grid>
+      </Grid>
     </Grid>
-    
   )
 }
 
