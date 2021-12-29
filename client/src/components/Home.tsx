@@ -1,10 +1,13 @@
+import { Grid } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import Header from './Header/Header';
 import MutualFollowings from './MutualFollowings/MutualFollowings';
 import TwitterUsers from './TwitterUsers/TwitterUsers';
 
+
 const Home = () => {
   const [users, setUsers] = useState(['punk6529', 'NFTLately']);
+  // const [users, setUsers] = useState(['punk6529']);
   const [mutualFollowings, setMutualFollowings] = useState([]);
 
   useEffect(() => {
@@ -13,18 +16,20 @@ const Home = () => {
 
   return (
     <>
-      {/* <div>
-        <Header />
-      </div> */}
-      <div>
+      <Header />
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        direction="column"
+        alignItems="center"
+      >
         <TwitterUsers />
-      </div>
-      <div>
         <MutualFollowings
           users={users}
           setMutualFollowings={setMutualFollowings}
         />
-      </div>
+      </Grid>
     </>
   )
 }
