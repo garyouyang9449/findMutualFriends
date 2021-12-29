@@ -6,7 +6,7 @@ import TwitterUsers from './TwitterUsers/TwitterUsers';
 
 
 const Home = () => {
-  const [users, setUsers] = useState(['punk6529', 'NFTLately']);
+  const [users, setUsers] = useState(['punk6529', 'Garyoy9449']);
   // const [users, setUsers] = useState(['punk6529']);
   const [mutualFollowings, setMutualFollowings] = useState([]);
 

@@ -3,6 +3,7 @@ import Axios from "axios";
 
 export const twitterUersToIds = (users: string) => {
   const twitterUsers: string[] = users.split(',');
+  var result: any[] = [];
   const promises = twitterUsers.map(user => {
     return Axios(
       {
@@ -13,7 +14,8 @@ export const twitterUersToIds = (users: string) => {
     )
     .then(res => res.data);
   });
-  return promises
+
+  return promises;
 }
 
 export const getFollowingsById = (users: any[]) => {
