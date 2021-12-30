@@ -7,7 +7,7 @@ const MutualFollowings = ({ users, setOpenAlert, setMessage }) => {
   const [mutualFollowings, setMutualFollowings] = useState([]);
 
   const onClick = () => {
-    if(users && users.length > 0) {
+    if(users && users.length > 1) {
       getMutualFollowings(users)
       .then(res => {
         var cur = []
@@ -21,7 +21,7 @@ const MutualFollowings = ({ users, setOpenAlert, setMessage }) => {
       });
     } else {
       setOpenAlert(true);
-      setMessage('Please enter at least one Twitter user')
+      setMessage('Please enter at least two Twitter user')
     }
   }
 
