@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 import { userToId } from '../../utils/Api';
+import UserList from '../Assets/UserList';
 
 const TwitterUsers = ({
   users,
@@ -44,26 +45,29 @@ const TwitterUsers = ({
   };
 
   return (
-    <Grid container>
-      <Grid item>
-        <TextField
-          id='standard-basic'
-          label='Enter a Twitter User Name'
-          variant='standard'
-          value={user}
-          onChange={handleChange}
-          error={openAlert}
-        />
-      </Grid>
-      <Grid item alignItems="stretch" style={{ display: "flex" }}>
-        <Button
-          variant="contained"
-          onClick={handleClick}
-        >
-          Add User
-        </Button>
-      </Grid>
-    </Grid>
+    <>
+      <Grid container>
+        <Grid item>
+          <TextField
+            id='standard-basic'
+            label='Enter a Twitter User Name'
+            variant='standard'
+            value={user}
+            onChange={handleChange}
+            error={openAlert}
+          />
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            onClick={handleClick}
+          >
+            Add User
+          </Button>
+        </Grid>
+      </Grid >
+      <UserList users={users} />
+    </>
   )
 }
 

@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
-const UserList = ({ mutualFollowings }) => {
+const UserList = ({ users }) => {
   return (
     <List
         sx={{
@@ -18,7 +18,7 @@ const UserList = ({ mutualFollowings }) => {
       >
         {
           <ul>
-            {mutualFollowings.length > 0 && mutualFollowings.map((item) => (
+            {users.length > 0 && users.map((item) => (
               <ListItem key={item}>
                 <ListItemText primary={`https://twitter.com/${item}`} />
               </ListItem>

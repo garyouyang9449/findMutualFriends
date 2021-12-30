@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import { getMutualFollowings } from '../../utils/Api';
 import UserList from '../Assets/UserList';
 
-
 const MutualFollowings = ({ users, setOpenAlert, setMessage }) => {
   const [mutualFollowings, setMutualFollowings] = useState([]);
 
@@ -34,7 +33,7 @@ const MutualFollowings = ({ users, setOpenAlert, setMessage }) => {
       >
         Get Mutual Followings
       </Button>
-      <UserList mutualFollowings={mutualFollowings} />
+      <UserList users={mutualFollowings} />
     </>
   )
 }
