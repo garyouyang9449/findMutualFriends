@@ -6,11 +6,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
-const MutualFollowings = ({ users }) => {
+const MutualFollowings = ({ users, setOpenAlert, setMessage }) => {
   const [mutualFollowings, setMutualFollowings] = useState([]);
 
   const onClick = () => {
-    getMutualFollowings(users)
+    if(users && users.length > 0) {
+      getMutualFollowings(users)
       .then(res => {
         var cur = []
 
@@ -18,19 +19,23 @@ const MutualFollowings = ({ users }) => {
           cur.push(res.data[user])
         }
         setMutualFollowings([...cur]);
+        setOpenAlert(false)
+        setMessage('')
       });
+    } else {
+      setOpenAlert(true);
+      setMessage('Please enter at least one Twitter user')
+    }
   }
 
   return (
     <>
-      <Grid item xs={12}>
-        <Button
-          variant="contained"
-          onClick={onClick}
-        >
-          Get Mutual Followings
-        </Button>
-      </Grid>
+      <Button
+        variant="contained"
+        onClick={onClick}
+      >
+        Get Mutual Followings
+      </Button>
       <List
         sx={{
           width: '100%',

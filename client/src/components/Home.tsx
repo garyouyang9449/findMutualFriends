@@ -15,29 +15,42 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        direction="column"
-        alignItems="center"
-      >
-        <TwitterUsers
-          users={users}
-          setUsers={setUsers}
-          userIds={userIds}
-          setUserIds={setUserIds}
-          openAlert={openAlert}
-          setOpenAlert={setOpenAlert}
-          setMessage={setMessage}
-        />
-        {openAlert && (
-          <AlertMassage
+      <Grid container>
+        <Grid item xs={6}>
+          <Grid
+            container
+            justifyContent="center"
+            direction="column"
+            alignItems="center"
+          >
+            <Grid item>
+              <TwitterUsers
+                users={users}
+                setUsers={setUsers}
+                userIds={userIds}
+                setUserIds={setUserIds}
+                openAlert={openAlert}
+                setOpenAlert={setOpenAlert}
+                setMessage={setMessage}
+              />
+            </Grid>
+            <Grid item>
+              {openAlert && (
+                <AlertMassage
+                  setOpenAlert={setOpenAlert}
+                  message={message}
+                />
+              )}
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <MutualFollowings
+            users={users}
             setOpenAlert={setOpenAlert}
-            message={message}
+            setMessage={setMessage}
           />
-        )}
-        <MutualFollowings users={users} />
+        </Grid>
       </Grid>
     </>
   )
