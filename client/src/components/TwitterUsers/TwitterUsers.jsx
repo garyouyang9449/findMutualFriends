@@ -37,7 +37,7 @@ const TwitterUsers = ({
           setOpenAlert(false)
           setMessage('')
           setUserIds([...userIds, res.data.data.id])
-          setUsers([...users, user]); //TODO: change user to its id
+          setUsers([...users, user]);
           setUser('');
         }
       })
