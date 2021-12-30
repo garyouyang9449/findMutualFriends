@@ -7,13 +7,14 @@ import { userToId } from '../../utils/Api';
 const TwitterUsers = ({
   users,
   setUsers,
+  userIds,
+  setUserIds,
   openAlert,
   setOpenAlert,
   setMessage
 }) => {
   const [user, setUser] = useState('');
   
-
   const handleChange = (event) => {
     setUser(event.target.value);
   }
@@ -25,8 +26,7 @@ const TwitterUsers = ({
     } else if(users.includes(user)) {
       setOpenAlert(true)
       setMessage('Twitter User is alredy in the list')
-    }
-    else {
+    } else {
       userToId(user)
       .then(res => {
         console.log(res)
@@ -34,8 +34,10 @@ const TwitterUsers = ({
           setOpenAlert(true)
           setMessage(res.data.error)
         } else {
+          console.log(res.data)
           setOpenAlert(false)
           setMessage('')
+          setUserIds([...userIds, res.data.data.id])
           setUsers([...users, user]); //TODO: change user to its id
           setUser('');
         }

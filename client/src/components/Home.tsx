@@ -7,7 +7,8 @@ import TwitterUsers from './TwitterUsers/TwitterUsers';
 
 
 const Home = () => {
-  const [users, setUsers] = useState(['punk6529', 'Garyoy9449']);
+  const [users, setUsers] = useState(['punk6529']);
+  const [userIds, setUserIds] = useState(['1388487332093997057']);
   const [mutualFollowings, setMutualFollowings] = useState([]);
   const [openAlert, setOpenAlert] = useState(false);
   const [message, setMessage] = useState('');
@@ -17,8 +18,9 @@ const Home = () => {
   }, [mutualFollowings]);
 
   useEffect(() => {
-    console.log(users)
-  }, [users]);
+    console.log(users);
+    console.log(userIds);
+  }, [users, userIds]);
 
   return (
     <>
@@ -33,6 +35,8 @@ const Home = () => {
         <TwitterUsers
           users={users}
           setUsers={setUsers}
+          userIds={userIds}
+          setUserIds={setUserIds}
           openAlert={openAlert}
           setOpenAlert={setOpenAlert}
           setMessage={setMessage}
