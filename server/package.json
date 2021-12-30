@@ -12,5 +12,6 @@
   },
   "scripts": {
     "server": "node ./src/App.ts"
-  }
+  },
+  "type": "module"
 }
