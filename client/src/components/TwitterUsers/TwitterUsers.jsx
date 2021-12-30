@@ -29,12 +29,10 @@ const TwitterUsers = ({
     } else {
       userToId(user)
       .then(res => {
-        console.log(res)
         if(res.data.error) {
           setOpenAlert(true)
           setMessage(res.data.error)
         } else {
-          console.log(res.data)
           setOpenAlert(false)
           setMessage('')
           setUserIds([...userIds, res.data.data.id])
