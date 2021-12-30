@@ -48,7 +48,7 @@ app.get('/mutual-followings', function (req, response) {
           return b[1] - a[1];
       });
 
-      const TOP_PERCENT = 0.5; // TODO: move this to const file
+      const TOP_PERCENT = 0.01; // TODO: move this to const file
       sortable = sortable.slice(0, sortable.length * TOP_PERCENT);
 
       sortable.forEach(id => {

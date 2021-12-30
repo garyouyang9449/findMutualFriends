@@ -7,8 +7,10 @@ import TwitterUsers from './TwitterUsers/TwitterUsers';
 
 
 const Home = () => {
-  const [users, setUsers] = useState(['punk6529']);
-  const [userIds, setUserIds] = useState(['1388487332093997057']);
+  // const [users, setUsers] = useState(['punk6529']);
+  // const [userIds, setUserIds] = useState(['1388487332093997057']);
+  const [users, setUsers] = useState([]);
+  const [userIds, setUserIds] = useState([]);
   const [mutualFollowings, setMutualFollowings] = useState([]);
   const [openAlert, setOpenAlert] = useState(false);
   const [message, setMessage] = useState('');
