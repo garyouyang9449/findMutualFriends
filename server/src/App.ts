@@ -1,11 +1,25 @@
 import express from "express";
-import { twitterUersToIds, getFollowingsById } from './Api/Api';
+import { userToId, twitterUersToIds, getFollowingsById } from './Api/Api';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 const cors = require("cors");
 
 app.use(cors());
+
+app.get('/user/:name', (req, response) => {
+  userToId(req.params.name)
+  .then(res => {
+    if(res.data !== undefined) {
+      response.json(res.data);
+    } else {
+      response.json({ data: 'Invalid Twitter User' });
+    }
+  })
+  .catch(error => {
+    response.json({ error: 'Invalid Twitter User' })
+  })
+});
 
 app.get('/mutual-followings', function (req, response) {
   const idPromises: Promise<string>[] = twitterUersToIds(<string>req.query.users);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
+import { userToId } from '../../utils/Api';
 
 const TwitterUsers = ({
   users,
@@ -21,11 +22,24 @@ const TwitterUsers = ({
     if(user.length > 0 && user.charAt(0) === '@') {
       setOpenAlert(true)
       setMessage('Twitter User cannot Start with @')
-    } else {
-      setOpenAlert(false)
-      setMessage('')
-      setUsers([...users, user]);
-      setUser('');
+    } else if(users.includes(user)) {
+      setOpenAlert(true)
+      setMessage('Twitter User is alredy in the list')
+    }
+    else {
+      userToId(user)
+      .then(res => {
+        console.log(res)
+        if(res.data.error) {
+          setOpenAlert(true)
+          setMessage(res.data.error)
+        } else {
+          setOpenAlert(false)
+          setMessage('')
+          setUsers([...users, user]); //TODO: change user to its id
+          setUser('');
+        }
+      })
     }
   };
 

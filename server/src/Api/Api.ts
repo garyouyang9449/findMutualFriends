@@ -1,9 +1,18 @@
-import { HEADERS } from '../auth/auth';
 import Axios from "axios";
+import { HEADERS } from "../auth/auth";
+
+export const userToId = (user: string) => {
+  return Axios(
+    {
+      method: "GET",
+      url: `https://api.twitter.com/2/users/by/username/${user}`,
+      headers: HEADERS
+    }
+  )
+}
 
 export const twitterUersToIds = (users: string) => {
   const twitterUsers: string[] = users.split(',');
-  var result: any[] = [];
   const promises = twitterUsers.map(user => {
     return Axios(
       {
