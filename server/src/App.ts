@@ -35,7 +35,8 @@ app.get('/mutual-followings', function (req, response) {
     Promise.all(followingPromises).then(r => {
       r.forEach(e => {
         e.data.forEach((user: any) => {
-          idToUser[user.id] = user.name;
+          console.log(user)
+          idToUser[user.id] = user.username;
           idToOccur[user.id] = idToOccur[user.id] + 1 || 0;
         });
       });
